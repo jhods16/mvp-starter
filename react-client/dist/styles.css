@@ -1,0 +1,18 @@
+header {
+  display: block;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  margin: 0 30px;
+}
+
+.key {
+  height: 10%
+}
