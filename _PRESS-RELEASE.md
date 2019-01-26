@@ -18,27 +18,36 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Harm Reduction Hub / Access / Resourced
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  All community harm reduction resources in one place
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
+
 ## Problem ##
   > Describe the problem your product solves.
+  No centralized repository of harm reduction resources. Some on google maps, some on non profit websites, some on clinic websites. Hard to get all if the information one might need like: how much does treatment cost? when is a clinic/center open? are they accepting patients? Often the search for support requires an enormous amount of overhead and this is a huge barrier for folks to be safe and get the help they need. There is NO easily accessible information for how to get narcan -- which is a lifesaving drug. 
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  Put everything in one place! Reduce the barriers to information and support access by allowing quick filtering by day, cost, resources available, and whether a clinic is accepting patients. Add clickable contact info so that people and reach out easily. Start to build a community hub for support led by clinics. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  Maximize access, minimize harm.
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  Open the app, look around! Contact centers.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  I had no idea all these resources existed for me.  
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  It shouldn't be hard. Let's build a community supportive of people in whatever phase of recovery and help them be safe. Something.
