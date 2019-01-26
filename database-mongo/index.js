@@ -1,3 +1,5 @@
+let data = require('./seedData.js');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
@@ -11,15 +13,46 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var serviceSchema = mongoose.Schema({
+  type: String,
+  name: String,
+  location: {
+    lat: Number,
+    lng: Number,
+  },
+  contact: {
+    phone: String,
+    email: String,
+    website: String,
+  },
+  insurance: Array,
+  acceptingPts: Boolean,
+  schedule: {
+    m: String,
+    tu: String,
+    w: String,
+    th: String,
+    f: String,
+    sat: String,
+    sun: String,
+  }
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Service = mongoose.model('Service', serviceSchema);
+
+let service = new Service(data);
+
+// service.save()
+//   .catch(err => console.error(err));
+
+// Service.deleteMany((err) => {
+//   if (err) {
+//     console.log(err)
+//   }
+// });
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  Service.find(function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -28,4 +61,7 @@ var selectAll = function(callback) {
   });
 };
 
-module.exports.selectAll = selectAll;
+module.exports = {
+  selectAll,
+  Service,
+}
