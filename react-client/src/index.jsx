@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import List from './components/DisplayedMarkers.jsx';
 import Map from './components/Map.jsx';
 
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
     return (
     <div>
       {/* <List items={this.state.items}/> */}
-      <Map></Map>
+      <Map className='map'></Map>
     </div>)
   }
 }
