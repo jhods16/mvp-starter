@@ -1,6 +1,7 @@
 import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import api_key from '../../../maps.config.js';
+import iconBuilder from '../buildIcon.js';
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -46,7 +47,14 @@ export class MapContainer extends React.Component {
             <p>Email: {this.state.infoContent.email}</p> : null}
           </div>
         </InfoWindow>
-        {this.props.services.map(service => <Marker position={service.location} name={{name: service.name, phone: service.contact.phone, email: service.contact.email}} onClick={this.onMarkerClick.bind(this)}></Marker>)}
+        {this.props.services.map(service => 
+          <Marker 
+            position={service.location} 
+            name={{name: service.name, phone: service.contact.phone, email: service.contact.email}} 
+            onClick={this.onMarkerClick} 
+            icon={iconBuilder(service.type)}
+           >
+            </Marker>)}
         <Marker name={{name: 'Current Location'}} onClick={this.onMarkerClick}></Marker>
       </Map>
     )
