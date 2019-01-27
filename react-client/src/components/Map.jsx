@@ -9,6 +9,7 @@ export class MapContainer extends React.Component {
       showInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
+      infoContent: '',
     }
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.closeInfoWindow = this.closeInfoWindow.bind(this);
@@ -19,6 +20,7 @@ export class MapContainer extends React.Component {
       activeMarker: marker,
       selectedPlace: props,
       showInfoWindow: true,
+      infoContent: marker.name
     })
   }
 
@@ -37,10 +39,15 @@ export class MapContainer extends React.Component {
           onClick={() => {console.log('click')}}
         >
           <div>
-            <h3>Current Location</h3>
+            <h3>{this.state.infoContent.name}</h3>
+            {this.state.infoContent.phone ? 
+            <p>Phone: {this.state.infoContent.phone} </p> : null}
+            {this.state.infoContent.email ? 
+            <p>Email: {this.state.infoContent.email}</p> : null}
           </div>
         </InfoWindow>
-        <Marker onClick={this.onMarkerClick}></Marker>
+        {this.props.services.map(service => <Marker position={service.location} name={{name: service.name, phone: service.contact.phone, email: service.contact.email}} onClick={this.onMarkerClick.bind(this)}></Marker>)}
+        <Marker name={{name: 'Current Location'}} onClick={this.onMarkerClick}></Marker>
       </Map>
     )
   }

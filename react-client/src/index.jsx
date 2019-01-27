@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/DisplayedMarkers.jsx';
-import Map from './components/Map.jsx';
+import MapContainer from './components/Map.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      services: []
     }
   }
 
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      url: '/services', 
       success: (data) => {
         this.setState({
-          items: data
+          services: data
         })
       },
       error: (err) => {
@@ -30,7 +29,7 @@ class App extends React.Component {
     return (
     <div>
       {/* <List items={this.state.items}/> */}
-      <Map className='map'></Map>
+      <MapContainer services={this.state.services}></MapContainer>
     </div>)
   }
 }
