@@ -18,7 +18,7 @@ export class MapContainer extends React.Component {
 
   onMarkerClick(props, marker, e) {
     this.setState({
-      activeMarker: marker,
+      activeMarker: marker.position,
       selectedPlace: props,
       showInfoWindow: true,
       infoContent: marker.name
@@ -30,14 +30,16 @@ export class MapContainer extends React.Component {
       showInfoWindow: false,
     })
   }
-
-  render() {
+    
+    render() {
     return (
       <Map style={{width: '95%', height: '100%', margin: 'auto'}} google={this.props.google} onClick={this.closeInfoWindow}>
         <InfoWindow
           visible={this.state.showInfoWindow}
-          marker={this.state.activeMarker}
+          // marker={this.state.activeMarker}
+          position={this.state.activeMarker}
           onClick={() => {console.log('click')}}
+          onClose={this.closeInfoWindow}
         >
           <div>
             <h3>{this.state.infoContent.name}</h3>
@@ -52,6 +54,7 @@ export class MapContainer extends React.Component {
             position={service.location} 
             name={{name: service.name, phone: service.contact.phone, email: service.contact.email}} 
             onClick={this.onMarkerClick} 
+            marker={this.props.google.maps}
             icon={iconBuilder(service.type)}
            >
             </Marker>)}
