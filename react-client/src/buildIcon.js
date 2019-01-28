@@ -1,6 +1,6 @@
 const iconBuilder = (type) => {
   let icon = {
-    url: './squat-marker-cyan.svg',
+    url: './images/squat-marker-cyan.svg',
     anchor: new google.maps.Point(0,0),
     scaledSize: new google.maps.Size(40,40)
   }
