@@ -14,5 +14,14 @@ header {
 }
 
 .key {
-  height: 10%
+  display: inline-flex;
+  list-style-type: none;
+}
+
+.key img {
+  height: 20px;
+}
+
+.key li {
+  padding: 5px;
 }
