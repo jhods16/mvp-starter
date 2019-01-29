@@ -57,7 +57,7 @@ class AddResource extends React.Component {
         <input style={{marginLeft: '33px'}} className='form' type='text' name='name' onChange={this.handleChange.bind(this)}></input><br></br>
         Type:
         <select style={{marginLeft: '33px'}} className='form' name='type' onChange={this.handleChange.bind(this)}>
-          <option className='option' value='Subxone'>Suboxone Clinic</option>
+          <option className='option' value='Suboxone'>Suboxone Clinic</option>
           <option value='Methadone'>Methadone Clinic</option>
           <option value='Narcan'>Narcan Dispensing</option>
           <option value='Needle Exchange'>Needle Exchange</option>

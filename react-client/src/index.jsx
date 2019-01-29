@@ -52,7 +52,6 @@ class App extends React.Component {
   }
 
   changeForm() {
-    console.log('called!')
     this.setState({
       form: !this.state.form
     })
