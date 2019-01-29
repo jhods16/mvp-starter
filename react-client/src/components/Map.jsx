@@ -34,7 +34,7 @@ export class MapContainer extends React.Component {
     
     render() {
     return (
-      <Map style={{width: '95%', height: '100%', margin: 'auto'}} google={this.props.google} onClick={this.closeInfoWindow}>
+      <Map style={{width: '100%', height: '88%', marginBottom: '0px'}} google={this.props.google} onClick={this.closeInfoWindow}>
         <InfoWindow
           visible={this.state.showInfoWindow}
           // marker={this.state.activeMarker}
@@ -43,7 +43,6 @@ export class MapContainer extends React.Component {
           onClose={this.closeInfoWindow}
         >
             <ServiceInfo infoContent={this.state.infoContent}/>
-
         </InfoWindow>
         {this.props.services.map(service => 
           <Marker 
@@ -53,7 +52,7 @@ export class MapContainer extends React.Component {
               phone: service.phone, 
               email: service.email,
               website: service.website,
-              insurance: service.insurance[0],
+              insurance: service.insurance.join(', '),
               acceptingPts: service.acceptingPts,
             }} 
             onClick={this.onMarkerClick} 
