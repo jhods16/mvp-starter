@@ -8,7 +8,7 @@ const ServiceInfo = (props) => (
     {props.infoContent.email ? 
     <p>Email: <a href={`mailto:${props.infoContent.email}`}l>{props.infoContent.email}</a> </p> : null}
     {props.infoContent.website ? 
-    <p>Website: {props.infoContent.website} </p> : null}
+    <p>Website: <a href={props.infoContent.website} target='_blank'>{props.infoContent.website}</a></p> : null}
     {props.infoContent.insurance ? 
     <p>Insurance: {props.infoContent.insurance} </p> : null}
     {props.infoContent.acceptingPts ?
