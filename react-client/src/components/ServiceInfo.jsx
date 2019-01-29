@@ -1,17 +1,21 @@
 import React from 'react';
 
-const ServiceInfo = (props) => {
-  return (
-    <ul className='key'>
-      <li onClick={props.selectByService.bind(this)} value='Needle Exchange'><img src='./images/squat-marker-cyan.svg'></img>Needle Exchanges & Drop Off</li>
-      <li onClick={props.selectByService.bind(this)} value='Narcan'><img src='./images/squat-marker-crimson.svg'></img>Narcan/Naloxone Access</li>
-      <li onClick={props.selectByService.bind(this)} value='Methadone'><img src='./images/squat-marker-green.svg'></img>Methadone Clinic</li>
-      <li onClick={props.selectByService.bind(this)} value='Suboxone'><img src='./images/squat-marker-yellow.svg'></img>Suboxone Clinc</li>
-      <li onClick={props.selectByService.bind(this)} value='NA Meeting'><img src='./images/squat-marker-purple.svg'></img>NA/AA Meeting</li>
-      <li onClick={props.selectByService.bind(this)} value='Other Meeting'><img src='./images/squat-marker-orange.svg'></img>Other Support Meeting</li>
-    </ul>
-  )
-}
-
+const ServiceInfo = (props) => (
+  <div>
+    <h3>{props.infoContent.name}</h3>
+    {props.infoContent.phone ? 
+    <p>Phone: {props.infoContent.phone} </p> : null}
+    {props.infoContent.email ? 
+    <p>Email: {props.infoContent.email} </p> : null}
+    {props.infoContent.website ? 
+    <p>Website: {props.infoContent.website} </p> : null}
+    {props.infoContent.insurance ? 
+    <p>Insurance: {props.infoContent.insurance} </p> : null}
+    {props.infoContent.acceptingPts ?
+      (props.infoContent.acceptingPts === 'yes' ? 
+    <p>Accepting Patients: <span style={{color: 'green', fontWeight: 'bold'}}>{props.infoContent.acceptingPts}</span></p> :
+      <p>Accepting Patients: <span style={{color: 'red', fontWeight: 'bold'}}>{props.infoContent.acceptingPts}</span></p>) : null}
+  </div>
+)
 
 export default ServiceInfo;

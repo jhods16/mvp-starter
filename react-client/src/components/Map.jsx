@@ -2,6 +2,7 @@ import React from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import api_key from '../../../maps.config.js';
 import iconBuilder from '../buildIcon.js';
+import ServiceInfo from './ServiceInfo.jsx';
 
 export class MapContainer extends React.Component {
   constructor(props) {
@@ -41,18 +42,20 @@ export class MapContainer extends React.Component {
           onClick={() => {console.log('click')}}
           onClose={this.closeInfoWindow}
         >
-          <div>
-            <h3>{this.state.infoContent.name}</h3>
-            {this.state.infoContent.phone ? 
-            <p>Phone: {this.state.infoContent.phone} </p> : null}
-            {this.state.infoContent.email ? 
-            <p>Email: {this.state.infoContent.email}</p> : null}
-          </div>
+            <ServiceInfo infoContent={this.state.infoContent}/>
+
         </InfoWindow>
         {this.props.services.map(service => 
           <Marker 
             position={service.location} 
-            name={{name: service.name, phone: service.contact.phone, email: service.contact.email}} 
+            name={{
+              name: service.name, 
+              phone: service.phone, 
+              email: service.email,
+              website: service.website,
+              insurance: service.insurance[0],
+              acceptingPts: service.acceptingPts,
+            }} 
             onClick={this.onMarkerClick} 
             marker={this.props.google.maps}
             icon={iconBuilder(service.type)}
