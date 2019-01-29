@@ -22,26 +22,33 @@ class App extends React.Component {
     let type = e.target.getAttribute('value');
     let filteredServices;
     let unfilteredServices = this.state.unfilteredServices;
-
-    if (this.state.unfilteredServices === this.state.services) {
-      filteredServices = this.state.services.filter((service) => {
-        return service.type === type;
-      });
-      this.setState({
-        services: filteredServices
-      });
-    } else {
+    console.log(type)
+    if (type === 'Show All') {
       this.setState({
         services: unfilteredServices
-      }, () => {
+      })
+    } else {
+      if (this.state.unfilteredServices === this.state.services) {
         filteredServices = this.state.services.filter((service) => {
           return service.type === type;
         });
         this.setState({
           services: filteredServices
         });
-      })
+      } else {
+        this.setState({
+          services: unfilteredServices
+        }, () => {
+          filteredServices = this.state.services.filter((service) => {
+            return service.type === type;
+          });
+          this.setState({
+            services: filteredServices
+          });
+        })
+      }
     }
+
   }
 
   changeForm() {

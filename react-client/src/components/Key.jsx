@@ -9,6 +9,7 @@ const Key = (props) => {
       <li onClick={props.selectByService.bind(this)} value='Suboxone'><img src='./images/squat-marker-yellow.svg'></img>Suboxone Clinc</li>
       <li onClick={props.selectByService.bind(this)} value='NA Meeting'><img src='./images/squat-marker-purple.svg'></img>NA/AA Meeting</li>
       <li onClick={props.selectByService.bind(this)} value='Other Meeting'><img src='./images/squat-marker-orange.svg'></img>Other Support Meeting</li>
+      <button value='Show All' onClick={props.selectByService.bind(this)}>Show All</button>
     </ul>
   )
 }
