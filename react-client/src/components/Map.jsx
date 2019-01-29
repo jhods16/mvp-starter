@@ -59,6 +59,7 @@ export class MapContainer extends React.Component {
             onClick={this.onMarkerClick} 
             marker={this.props.google.maps}
             icon={iconBuilder(service.type)}
+            key={service.name}
            >
             </Marker>)}
         <Marker name={{name: 'Current Location'}} onClick={this.onMarkerClick}></Marker>
