@@ -6,7 +6,7 @@ const ServiceInfo = (props) => (
     {props.infoContent.phone ? 
     <p>Phone: {props.infoContent.phone} </p> : null}
     {props.infoContent.email ? 
-    <p>Email: {props.infoContent.email} </p> : null}
+    <p>Email: <a href={`mailto:${props.infoContent.email}`}l>{props.infoContent.email}</a> </p> : null}
     {props.infoContent.website ? 
     <p>Website: {props.infoContent.website} </p> : null}
     {props.infoContent.insurance ? 
