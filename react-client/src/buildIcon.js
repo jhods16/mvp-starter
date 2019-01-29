@@ -1,24 +1,24 @@
 const iconBuilder = (type) => {
   let icon = {
-    url: './images/squat-marker-cyan.svg',
+    url: './images/aqua.png',
     anchor: new google.maps.Point(0,0),
-    scaledSize: new google.maps.Size(40,40)
+    scaledSize: new google.maps.Size(35,28)
   }
 
   if (type === 'Narcan') {
-    icon.url = './images/squat-marker-crimson.svg'
+    icon.url = './images/purple.png'
   }
   if (type === 'Methadone') {
-    icon.url = './images/squat-marker-green.svg'
+    icon.url = './images/green.png'
   }
   if (type === 'Suboxone') {
-    icon.url = './images/squat-marker-yellow.svg'
+    icon.url = './images/yellow.png'
   }
   if (type === 'NA Meeting') {
-    icon.url = './images/squat-marker-purple.svg'
+    icon.url = './images/pink.png'
   }
   if (type === 'Other Meeting') {
-    icon.url = './images/squat-marker-orange.svg'
+    icon.url = './images/blue.png'
   }
   return icon;
 };
