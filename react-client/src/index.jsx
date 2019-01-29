@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import MapContainer from './components/Map.jsx';
-import ServiceInfo from './components/ServiceInfo.jsx';
+import Key from './components/Key.jsx';
+import AddResource from './components/AddResource.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,8 +12,10 @@ class App extends React.Component {
       services: [],
       unfilteredServices: [],
       serviceType: '',
+      form: true,
     }
     this.selectByService = this.selectByService.bind(this);
+    this.changeForm = this.changeForm.bind(this);
   }
 
   selectByService(e) {
@@ -20,7 +23,6 @@ class App extends React.Component {
     let filteredServices;
     let unfilteredServices = this.state.unfilteredServices;
 
-    console.log(this.state.unfilteredServices)
     if (this.state.unfilteredServices === this.state.services) {
       filteredServices = this.state.services.filter((service) => {
         return service.type === type;
@@ -40,8 +42,13 @@ class App extends React.Component {
         });
       })
     }
+  }
 
-    
+  changeForm() {
+    console.log('called!')
+    this.setState({
+      form: !this.state.form
+    })
   }
 
   componentDidMount() {
@@ -62,8 +69,16 @@ class App extends React.Component {
   render () {
     return (
     <div>
-      <ServiceInfo selectByService={this.selectByService}/>
-      <MapContainer services={this.state.services}></MapContainer>
+      <div className='nav'>
+        <button onClick={this.changeForm}>{this.state.form ? 'Add a Resource' : 'View Map' }</button>
+      </div>
+      {this.state.form === true ?
+        <div>
+          <Key selectByService={this.selectByService}/>
+          <MapContainer services={this.state.services}></MapContainer> 
+        </div>: 
+        <AddResource changeForm={this.state.changeForm}/>
+      }
     </div>)
   }
 }
