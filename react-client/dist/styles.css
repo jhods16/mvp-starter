@@ -1,3 +1,8 @@
+body {
+  margin: 2px;
+  font-family: monospace;
+}
+
 header {
   display: block;
 }
@@ -7,21 +12,64 @@ header {
   justify-content: center;
 }
 
-.nav {
-  align-items: center;
-  display: flex;
-  margin: 0 30px;
-}
 
 .key {
   display: inline-flex;
   list-style-type: none;
+  padding-left: 7px;
 }
 
 .key img {
   height: 20px;
-}
+  margin-right: 4px;
+}  
 
 .key li {
   padding: 5px;
+}
+
+.key button {
+  display: inline-flex;
+  height: 40px;
+  background-color: white;
+  border-color: white;
+  font-size: 12px;
+}
+
+.key button:focus {
+  outline: none;
+}
+
+.key button:active {
+  border: none;
+  
+}
+
+.key button:hover {
+  border-bottom: 3px solid black;
+  cursor: pointer;
+}
+
+.key_item {
+  padding-top: 3px;
+  font-family: monospace
+}
+
+.form {
+  padding: 5px;
+  margin: 5px;
+  font-family: monospace;
+}
+
+select.form, .form option{
+  background-color: white;
+  border-radius: 0px;
+}
+
+select.form:focus, button.form:focus {
+  outline: none;
+}
+
+.option {
+  background-color: white;
 }

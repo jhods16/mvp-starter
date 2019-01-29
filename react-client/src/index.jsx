@@ -76,15 +76,15 @@ class App extends React.Component {
   render () {
     return (
     <div>
-      <div className='nav'>
-        <button onClick={this.changeForm}>{this.state.form ? 'Add a Resource' : 'View Map' }</button>
+      <div className='nav-container'>
+        <h1>Harm Reduction Hub</h1>
+        <Key selectByService={this.selectByService} changeForm={this.changeForm} currentForm={this.state.form}/>
       </div>
       {this.state.form === true ?
         <div>
-          <Key selectByService={this.selectByService}/>
           <MapContainer services={this.state.services}></MapContainer> 
         </div>: 
-        <AddResource changeForm={this.state.changeForm}/>
+        <AddResource className='form' changeForm={this.state.changeForm}/>
       }
     </div>)
   }
