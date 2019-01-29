@@ -17,6 +17,9 @@ const iconBuilder = (type) => {
   if (type === 'NA Meeting') {
     icon.url = './images/squat-marker-purple.svg'
   }
+  if (type === 'Other Meeting') {
+    icon.url = './images/squat-marker-orange.svg'
+  }
   return icon;
 };
 
