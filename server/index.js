@@ -37,7 +37,6 @@ app.post('/addResource', (req, res) => {
         }
       })
     }
-    console.log(data.json.results[0].geometry.location);
   })
 });
 
