@@ -20,19 +20,19 @@ class AddResource extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-    console.log(this.state)
     $.ajax({
       url: '/addresource',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(this.state),
-      success: (res) => {
-        props.changeForm()
+      success: () => {
+        console.log('success')
       },
       error: (err) => {
         console.error(err)
       }
     })
+    e.target.reset();
   }
 
   handleChange(e) {
@@ -43,11 +43,9 @@ class AddResource extends React.Component {
       insurances.push(value)
       this.setState({
         [name]: insurances
-      })
+      });
     } else {
-      this.setState({[name]: value}, () => {
-        console.log(this.state)
-      })
+      this.setState({[name]: value});
     }
   }
   
