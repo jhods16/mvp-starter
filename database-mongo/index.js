@@ -14,36 +14,30 @@ db.once('open', function() {
 });
 
 var serviceSchema = mongoose.Schema({
-  type: String,
   name: String,
+  type: String,
   location: {
     lat: Number,
     lng: Number,
   },
-  contact: {
-    phone: String,
-    email: String,
-    website: String,
-  },
+  phone: String,
+  email: String,
+  website: String,
   insurance: Array,
-  acceptingPts: Boolean,
-  schedule: {
-    m: String,
-    tu: String,
-    w: String,
-    th: String,
-    f: String,
-    sat: String,
-    sun: String,
-  }
+  acceptingPts: String,
+  
+  // schedule: {
+  //   m: String,
+  //   tu: String,
+  //   w: String,
+  //   th: String,
+  //   f: String,
+  //   sat: String,
+  //   sun: String,
+  // }
 });
 
 var Service = mongoose.model('Service', serviceSchema);
-
-let service = new Service(data);
-
-// service.save()
-//   .catch(err => console.error(err));
 
 // Service.deleteMany((err) => {
 //   if (err) {
@@ -61,7 +55,16 @@ var selectAll = function(callback) {
   });
 };
 
+var addNew = function(data, callback) {
+  let service = new Service(data);
+  service.save()
+  .then(() => {
+    callback() })
+  .catch(err => callback(err));
+}
+
 module.exports = {
   selectAll,
   Service,
+  addNew
 }
