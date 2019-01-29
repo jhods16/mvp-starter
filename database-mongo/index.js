@@ -39,11 +39,6 @@ var serviceSchema = mongoose.Schema({
 
 var Service = mongoose.model('Service', serviceSchema);
 
-// Service.deleteMany((err) => {
-//   if (err) {
-//     console.log(err)
-//   }
-// });
 
 var selectAll = function(callback) {
   Service.find(function(err, items) {
@@ -60,11 +55,26 @@ var addNew = function(data, callback) {
   service.save()
   .then(() => {
     callback() })
-  .catch(err => callback(err));
-}
+    .catch(err => callback(err));
+  }
 
-module.exports = {
-  selectAll,
-  Service,
+var updateOne = function(data, callback) {
+  Service.findOneAndUpdate(data.name, data.update, (err) => {
+    if (err) {
+      console.log(err);
+    }
+  })
+} 
+
+// updateOne()
+  // Service.deleteMany((err) => {
+  //   if (err) {
+  //     console.log(err)
+  //   }
+  // });
+  
+  module.exports = {
+    selectAll,
+    Service,
   addNew
 }
